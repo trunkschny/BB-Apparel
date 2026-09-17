@@ -1,143 +1,584 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tier 1 Tutoring School | Contact</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Contact Us | BB Apparel</title>
+
+  <!-- ฟอนต์แนวสตรีทชุดเดียวกับหน้าหลักและ About -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================= THEME VARIABLES (เขียว-ดำ) ================= */
+    :root {
+      --bg-dark: #0a0c0a;
+      --bg-surface: #121613;
+      --bg-card: #181d19;
+      --border-color: #232b24;
+
+      --neon-green: #00ff66;
+      --neon-glow: rgba(0, 255, 102, 0.25);
+      --text-muted: #839185;
+      --text-light: #e6ede8;
+      --white: #ffffff;
+
+      --font-heading: 'Chakra Petch', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-heading);
+      color: var(--neon-green);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    /* ================= HEADER ================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 10, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-badge {
+      background: var(--neon-green);
+      color: var(--bg-dark);
+      font-weight: 800;
+      font-family: var(--font-heading);
+      padding: 0.2rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 2px;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .logo-text span {
+      color: var(--neon-green);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--neon-green);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background-color: var(--neon-green);
+    }
+
+    /* ================= PAGE BANNER ================= */
+    .page-banner {
+      padding: 5rem 1.5rem 3.5rem;
+      background: radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.08) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .page-banner h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .page-banner h1 span {
+      color: var(--neon-green);
+    }
+
+    .page-banner p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .contact-section {
+      padding: 5.5rem 0;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Card ข้อมูลติดต่อ */
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .contact-info-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--neon-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .info-details strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-details p,
+    .info-details a {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .info-details a:hover {
+      color: var(--neon-green);
+    }
+
+    /* ฟอร์มข้อความ */
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .contact-form h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    .contact-form h3 span {
+      color: var(--neon-green);
+    }
+
+    .form-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-light);
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--neon-green);
+      box-shadow: 0 0 10px var(--neon-glow);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--neon-green);
+      color: var(--bg-dark);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      border-radius: 2px;
+      box-shadow: 0 0 15px var(--neon-glow);
+      transition: var(--transition);
+    }
+
+    .btn-submit:hover {
+      background-color: #33ff85;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+    }
+
+    /* ================= FOOTER ================= */
+    .site-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--neon-green);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
     <nav class="navbar">
       <a href="index.html" class="logo">
-        <img src="images/logo.svg" alt="Tier 1 logo" />
-        <span class="logo-text">TIER <span>1</span></span>
+        <div class="logo-badge">BB</div>
+        <span class="logo-text">APPAREL <span>/ 26</span></span>
       </a>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop All</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+        <li><a href="collections.html">Collections</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="career.html">Career</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
+
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
-  <section class="page-banner">
-    <h1>Contact Us</h1>
-    <p>Questions about courses, schedules or trial lessons? Get in touch.</p>
-  </section>
+  <main>
+    <!-- ================= PAGE BANNER ================= -->
+    <section class="page-banner">
+      <p class="eyebrow">// GET IN TOUCH</p>
+      <h1>CONTACT <span>HEADQUARTERS</span></h1>
+      <p>มีคำถามเกี่ยวกับคอลเลกชันใหม่ ไซส์สินค้า หรือการสั่งซื้อ ติดต่อทีมงานได้โดยตรง</p>
+    </section>
 
-  <section>
-    <div class="section-inner">
-      <div class="contact-wrap">
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="contact-section">
+      <div class="section-inner">
+        <div class="contact-wrap">
 
-        <div class="contact-info-card">
-          <h3>Get In Touch</h3>
+          <!-- Information Card -->
+          <div class="contact-info-card">
+            <h3>CONTACT INFO</h3>
 
-          <div class="contact-info-item">
-            <img src="images/icon-phone.svg" alt="Phone icon" />
-            <div>
-              <strong>Phone</strong>
-              <a href="tel:0918408525">091-840-8525</a>
+            <div class="contact-info-item">
+              <div class="info-icon">☎</div>
+              <div class="info-details">
+                <strong>Phone Number</strong>
+                <a href="tel:0918408525">091-840-8525</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="info-icon">✉</div>
+              <div class="info-details">
+                <strong>Email Address</strong>
+                <a href="mailto:Thanaphon.hong7@gmail.com">Thanaphon.hong7@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="info-icon">⚲</div>
+              <div class="info-details">
+                <strong>Showroom / Location</strong>
+                <p>Sripatum University, Bangkok, Thailand</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="info-icon">⏱</div>
+              <div class="info-details">
+                <strong>Working Hours</strong>
+                <p>Mon &ndash; Fri: 10:00 AM &ndash; 8:00 PM</p>
+              </div>
             </div>
           </div>
 
-          <div class="contact-info-item">
-            <img src="images/icon-email.svg" alt="Email icon" />
-            <div>
-              <strong>Email</strong>
-              <a href="mailto:Thanaphon.hong7@gmail.com">Thanaphon.hong7@gmail.com</a>
-            </div>
+          <!-- Message Form -->
+          <div class="contact-form">
+            <h3>SEND US A <span>MESSAGE</span></h3>
+            <p class="form-desc">กรอกรายละเอียดด้านล่าง เราจะตอบกลับทางอีเมลภายใน 24 ชั่วโมง</p>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="ชื่อ-นามสกุล ของคุณ" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="topic">Topic of Interest</label>
+                <select id="topic" name="topic">
+                  <option value="">เลือกหัวข้อติดต่อสอบถาม</option>
+                  <option value="order">สถานะคำสั่งซื้อ & การจัดส่ง</option>
+                  <option value="product">สอบถามข้อมูลสินค้า & ตารางไซส์</option>
+                  <option value="return">การเปลี่ยนหรือคืนสินค้า</option>
+                  <option value="collab">ติดต่อร่วมงาน / Collaboration</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="พิมพ์ข้อความของคุณที่นี่..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit">SEND MESSAGE</button>
+            </form>
           </div>
 
-          <div class="contact-info-item">
-            <img src="images/icon-location.svg" alt="Location icon" />
-            <div>
-              <strong>Learning Centre</strong>
-              <p>Sripatum University, Bangkok, Thailand</p>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <img src="images/icon-phone.svg" alt="Hours icon" style="opacity:0.85;" />
-            <div>
-              <strong>Office Hours</strong>
-              <p>Mon &ndash; Fri, 10:00 AM &ndash; 8:00 PM</p>
-            </div>
-          </div>
         </div>
-
-        <div class="contact-form">
-          <h3 style="color: var(--navy); margin-bottom: 6px;">Send Us a Message</h3>
-          <p style="color: var(--gray-text); font-size: 14px;">We usually reply within one business day.</p>
-
-          <form id="contactForm">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" />
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" />
-
-            <label for="course">Course of Interest</label>
-            <select id="course" name="course">
-              <option value="">Select a course (optional)</option>
-              <option value="UK Math">UK Math</option>
-              <option value="US Math">US Math</option>
-              <option value="IGCSE">IGCSE</option>
-              <option value="A-Level">A-Level</option>
-              <option value="SAT">SAT</option>
-            </select>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your child's or your own math learning goals..."></textarea>
-
-            <div style="margin-top: 20px;">
-              <button type="submit" class="btn btn-primary" style="background-color: var(--navy); color:#fff;">Send Message</button>
-            </div>
-
-            <p id="formMsg" class="form-msg"></p>
-          </form>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div>
-        <h4>Tier 1 Tutoring School</h4>
-        <p>Helping students of all ages master mathematics, from primary school through university and beyond.</p>
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-badge">BB</div>
+          <span class="logo-text">APPAREL</span>
+        </div>
+        <p>แบรนด์เสื้อผ้าสตรีทที่ผสมผสานระหว่างสไตล์อันดิบเท่ ความสบาย และจิตวิญญาณแห่งวัฒนธรรมยุคใหม่</p>
       </div>
-      <div>
-        <h4>Quick Links</h4>
+
+      <div class="footer-col">
+        <h4>NAVIGATION</h4>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="articles.html">Articles</a></li>
-          <li><a href="career.html">Career</a></li>
+          <li><a href="shop.html">สินค้าทั้งหมด</a></li>
+          <li><a href="lookbook.html">Lookbook</a></li>
+          <li><a href="collections.html">ดรอปใหม่ล่าสุด</a></li>
+          <li><a href="about.html">เรื่องราวแบรนด์</a></li>
         </ul>
       </div>
-      <div>
-        <h4>Contact</h4>
+
+      <div class="footer-col">
+        <h4>CONTACT DIRECT</h4>
         <ul>
           <li>Phone: 091-840-8525</li>
           <li>Email: Thanaphon.hong7@gmail.com</li>
-          <li>Location: Sripatum University, Bangkok</li>
+          <li>Location: Sripatum University, BKK</li>
+          <li>Open: Mon-Fri (10am-8pm)</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>COMMUNITY</h4>
+        <ul>
+          <li><a href="#">Instagram @bbapparel</a></li>
+          <li><a href="#">TikTok @bb_streets</a></li>
+          <li><a href="#">Line Official: @bbapparel</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; <span id="year"></span> Tier 1 Tutoring School. This is an example website built for a web design class.
+      <span>© 2026 BB APPAREL CO., LTD. ALL RIGHTS RESERVED.</span>
+      <span>AUTHENTIC STREETWEAR.</span>
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
 </body>
 </html>
